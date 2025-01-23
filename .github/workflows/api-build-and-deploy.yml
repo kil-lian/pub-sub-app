@@ -27,15 +27,19 @@ jobs:
           dotnet-version: ${{env.DOTNET_VERSION}}
 
       - name: Build with dotnet
+        working-directory: ${{env.PROJECT_FOLDER}}
         run: dotnet build --configuration Release
 
       - name: dotnet publish
+        working-directory: ${{env.PROJECT_FOLDER}}
         run: dotnet publish -c Release -o ${{env.PROJECT_FOLDER}}/myapp
 
       - name: install dotnet ef
+        working-directory: ${{env.PROJECT_FOLDER}}
         run: dotnet tool install -g dotnet-ef --version ${{env.DOTNET_EF_VERSION}}
 
       - name: dotnet bundle migration
+        working-directory: ${{env.PROJECT_FOLDER}}
         run: dotnet ef migrations bundle --runtime linux-x64 -p ${{env.PROJECT_FOLDER}}/${{env.PROJECT_NAME}}.csproj -o ${{env.PROJECT_FOLDER}}/myapp/migrate
 
       - name: Upload artifact for deployment job
