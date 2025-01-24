@@ -28,11 +28,7 @@ jobs:
       - name: Build with dotnet
         working-directory: ${{env.PROJECT_FOLDER}}
         run: dotnet build --configuration Release
-              
-      - name: Run tests
-        run: dotnet test RabbitMqProductAPI.Tests/RabbitMqProductAPI.Tests.csproj --logger "trx;LogFileName=test_results.trx"
-
-      
+        
       - name: dotnet publish
         working-directory: ${{env.PROJECT_FOLDER}}
         run: dotnet publish -c Release -o myapp
@@ -50,6 +46,12 @@ jobs:
         with:
           name: .net-app
           path: ${{env.PROJECT_FOLDER}}/myapp
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Run tests
+        run: dotnet test RabbitMqProductAPI.Tests/RabbitMqProductAPI.Tests.csproj
 
 #  deploy:
 #    runs-on: ubuntu-latest
