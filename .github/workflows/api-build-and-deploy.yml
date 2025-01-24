@@ -6,7 +6,7 @@ name: Build and deploy API app
 on:
   push:
     branches:
-      - main
+      branches: ["develop"]
   workflow_dispatch:
 
 jobs:
