@@ -14,8 +14,8 @@ jobs:
     env:
       PROJECT_FOLDER: "RabbitMqProductAPI"
       PROJECT_NAME: "RabbitMqProductAPI"
-      DOTNET_VERSION: "9.x"
-      DOTNET_EF_VERSION: "9.0.1"
+      DOTNET_VERSION: "8.x"
+      DOTNET_EF_VERSION: "8.0.1"
 
     steps:
       - uses: actions/checkout@v4
