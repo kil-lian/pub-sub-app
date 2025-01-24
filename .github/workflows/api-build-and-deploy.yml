@@ -29,7 +29,10 @@ jobs:
       - name: Build with dotnet
         working-directory: ${{env.PROJECT_FOLDER}}
         run: dotnet build --configuration Release
-
+        
+      - name: Run tests
+        run: dotnet test --logger "trx;LogFileName=test_results.trx"
+      
       - name: dotnet publish
         working-directory: ${{env.PROJECT_FOLDER}}
         run: dotnet publish -c Release -o myapp
