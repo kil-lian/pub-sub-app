@@ -29,7 +29,7 @@ services:
     ports:
       - 8090:8080
     environment:
-      - ConnectionStrings__DefaultConnection=Server=tcp:mssql,1433;Initial Catalog=RabbitMqDemo;Persist Security Info=False;User ID=sa;Password=P@ssw0rd2023!;Connection Timeout=30;
+      - ConnectionStrings__DefaultConnection=Server=tcp:mssql,1433;Initial Catalog=RabbitMqDemo;Persist Security Info=False;User ID=sa;Password=${ENV_MDPBDD};Connection Timeout=30;
       - RabbitMQ__Hostname=rabbitmq
       - RabbitMQ__Username=admin
       - RabbitMQ__Password=admin
