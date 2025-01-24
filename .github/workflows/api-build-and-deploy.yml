@@ -50,6 +50,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     needs: build
+    env:
+      DOTNET_VERSION: "9.x"
+      DOTNET_EF_VERSION: "9.0.1"
     steps:
       - uses: actions/checkout@v4
 
